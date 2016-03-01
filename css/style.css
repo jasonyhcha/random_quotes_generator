@@ -1,3 +1,11 @@
+body{
+  font-family:"Love Ya Like A Sister";
+}
+
+h1{
+  font-size:80px;
+}
+
 #generate{
   
   background: none;
@@ -6,8 +14,7 @@
 }
 
 #quote-layout{
-  border:solid;
-  width:700px;
+  width:1000px;
   margin:auto;
   margin-top: 30vh;
 }
@@ -18,4 +25,7 @@
 
 #heart{
   float:right;
+  background:none;
+  font-size:20px;
+  padding:0;
 }
