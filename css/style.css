@@ -1,31 +1,61 @@
-body{
-  font-family:"Love Ya Like A Sister";
+body {
+  font-family: "Love Ya Like A Sister";
 }
 
-h1{
-  font-size:80px;
+.btn:focus,
+.btn:active {
+  outline: 0 !important;
 }
 
-#generate{
-  
+h1 {
+  font-size: 80px;
+}
+
+#favorites-list {
+  border: solid;
+  width: 300px;
+}
+
+#quote-layout {
+  width: 1000px;
+  margin: auto;
+  margin-top: 25vh;
+}
+
+#author {
+  text-align: right;
+}
+
+#heart {
+  float: right;
   background: none;
-  border: 2px solid #0099cc;
-  color: #0099cc; 
+  font-size: 20px;
+  padding: 0;
 }
 
-#quote-layout{
-  width:1000px;
-  margin:auto;
-  margin-top: 30vh;
+#content .glyphicon-heart {
+  color: red;
 }
 
-#author{
-  text-align:right;
+#list .glyphicon-heart {
+  font-size: 30px;
 }
 
-#heart{
-  float:right;
-  background:none;
-  font-size:20px;
-  padding:0;
+.badge {
+  margin-left: -14px;
+  font-size: 10px;
+}
+
+.btn-lg {
+  z-index: 100000000000;
+}
+
+#list {
+  background: none;
+  padding: 0;
+  display: inline-block;
+  position: fixed;
+  margin-left: 30px;
+  margin-top: -35px;
+  ;
 }
