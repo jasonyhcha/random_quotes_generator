@@ -50,6 +50,10 @@ h1 {
   z-index: 100000000000;
 }
 
+.modal-author{
+  text-align:right;
+}
+
 #list {
   background: none;
   padding: 0;

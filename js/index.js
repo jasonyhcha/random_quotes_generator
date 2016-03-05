@@ -19,10 +19,14 @@ function color_change() {
   });
 };
 
-$("body").click(function(evt) {
+$("html").click(function(evt) {
   if (click_disabled)
     return;
   if ($(evt.target).closest('#heart').length)
+    return;
+  if($(evt.target).closest('#fav-modal').length)
+    return;
+  if($(evt.target).closest('#list').length)
     return;
   $.ajax({
     beforeSend: function(request) {
@@ -41,7 +45,11 @@ $("body").click(function(evt) {
       $("#content").fadeTo(500, 0, function() {
         $("#quote").html('"' + quote + '"');
         $("#author").html("-" + author);
-        $("#heart span").switchClass("glyphicon-heart", "glyphicon-heart-empty", 500);
+        if($.inArray(current_quote,favorites) > -1){
+          $("#heart span").switchClass("glyphicon-heart-empty", "glyphicon-heart", 100);
+        }
+        else
+          $("#heart span").switchClass("glyphicon-heart", "glyphicon-heart-empty", 100);
         $("#content").fadeTo(750, 1, function() {});
       });
     }
@@ -57,14 +65,16 @@ $("#heart").click(function() {
   if (favorites.length === 0) {
     $("#list").animate({
       "margin-top": "+=40"
-    });
+    }, "fast");
   }
 
+
   if ($.inArray(current_quote, favorites) === -1) {
+    $(".modal-body").append('<h3 class="modal-quote">"'+current_quote.quote+'"</h3>');
+    $(".modal-body").append('<p class="modal-author">-'+current_quote.author+"<p>");
+    $(".modal-body").append("<hr>");
     favorites.push(current_quote);
-    console.log("test");
-    console.log(favorites);
-    $("#heart span").switchClass("glyphicon-heart-empty", "glyphicon-heart", 500);
+    $("#heart span").switchClass("glyphicon-heart-empty", "glyphicon-heart", 100);
     $("#list .badge").html(favorites.length);
   }
 });
